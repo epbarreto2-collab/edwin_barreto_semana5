@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facturador 5.0 · Carrito modular</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- type="module": permite usar import y export (ya incluye el comportamiento de defer) -->
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+
+  <!-- CAPA DE COMPUTADORA EN EL FONDO -->
+  <div class="bg-computadora-container">
+    <div class="luz-focal" id="luzFocal"></div>
+    <div class="grid-cyber"></div>
+
+    <!-- Vector SVG de la Computadora de Fondo -->
+    <svg class="pc-vector" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+      <!-- Base & Stand del Monitor -->
+      <path class="pc-base" d="M 280 430 L 520 430 L 550 460 L 250 460 Z" />
+      <path class="pc-stand" d="M 370 350 L 430 350 L 440 430 L 360 430 Z" />
+
+      <!-- Marco Pantalla -->
+      <rect class="pc-screen-border" x="80" y="30" width="640" height="330" rx="16" />
+      <rect class="pc-screen-glass" x="90" y="40" width="620" height="310" rx="10" />
+
+      <!-- Gráficos Futuristas en Pantalla -->
+      <!-- Código simulado -->
+      <g class="pc-code-lines" transform="translate(120, 70)">
+        <line x1="0" y1="10" x2="180" y2="10" />
+        <line x1="0" y1="30" x2="240" y2="30" />
+        <line x1="0" y1="50" x2="140" y2="50" />
+        <line x1="0" y1="70" x2="200" y2="70" />
+        <line x1="0" y1="90" x2="110" y2="90" />
+        <line x1="0" y1="110" x2="260" y2="110" />
+        <line x1="0" y1="130" x2="170" y2="130" />
+      </g>
+
+      <!-- Barras de Estadísticas Simuladas -->
+      <g transform="translate(480, 110)">
+        <rect class="bar-bg" x="0" y="0" width="30" height="180" rx="4" />
+        <rect class="bar-fill b1" x="0" y="100" width="30" height="80" rx="4" />
+
+        <rect class="bar-bg" x="45" y="0" width="30" height="180" rx="4" />
+        <rect class="bar-fill b2" x="45" y="60" width="30" height="120" rx="4" />
+
+        <rect class="bar-bg" x="90" y="0" width="30" height="180" rx="4" />
+        <rect class="bar-fill b3" x="90" y="130" width="30" height="50" rx="4" />
+      </g>
+
+      <!-- Línea Laser de Escaneo -->
+      <line class="scanline-laser" x1="90" y1="50" x2="710" y2="50" />
+    </svg>
+  </div>
+
+  <!-- BARRA SUPERIOR Y LOGO -->
+  <header class="barra">
+    <div class="logo-contenedor" id="logoBtn" onclick="efectoSobrecargaLogo()">
+      <svg class="logo-svg" id="logoSvg" viewBox="0 0 100 100">
+        <!-- Rieles circulares -->
+        <circle class="ring-outer" cx="50" cy="50" r="42" />
+        <circle class="ring-inner" cx="50" cy="50" r="32" stroke-dasharray="10 15" />
+        <!-- Chip Núcleo -->
+        <rect class="chip-core" x="36" y="36" width="28" height="28" rx="6" />
+        <!-- Trazos de circuito -->
+        <line class="line-trace" x1="50" y1="8" x2="50" y2="24" />
+        <line class="line-trace" x1="50" y1="76" x2="50" y2="92" />
+        <line class="line-trace" x1="8" y1="50" x2="24" y2="50" />
+        <line class="line-trace" x1="76" y1="50" x2="92" y2="50" />
+        <!-- Nodos de circuito -->
+        <circle class="node" cx="50" cy="24" r="3" />
+        <circle class="node" cx="50" cy="76" r="3" />
+        <circle class="node" cx="24" cy="50" r="3" />
+        <circle class="node" cx="76" cy="50" r="3" />
+      </svg>
+      <div class="logo-texto">
+        <h1>CYBER<span class="version">TECH</span></h1>
+        <span class="subtexto">HARDWARE STORE 2026</span>
+      </div>
+    </div>
+
+    <!-- Botón Toggle de Carrito -->
+    <div class="carrito-btn-wrapper" id="cart-toggle-btn" onclick="toggleCartDrawer()">
+      <span class="carrito-icono">🛒</span>
+      <span style="font-weight: 700; font-size: 0.9rem; color: #fff;">Carrito</span>
+      <span class="badge" id="cart-badge">0</span>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL LAYOUT -->
+  <main class="layout">
+
+    <!-- PANEL DEL CATÁLOGO DE PRODUCTOS -->
+    <section class="panel">
+      <h2>
+        <svg width="22" height="22" fill="none" stroke="var(--accent-cyan)" stroke-width="2" viewBox="0 0 24 24">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21" />
